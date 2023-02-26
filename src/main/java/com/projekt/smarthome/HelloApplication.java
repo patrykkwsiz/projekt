@@ -16,6 +16,8 @@ public class HelloApplication extends Application {
                 Connection c = null;
                 Statement stmt = null;
 
+                //Sprawdzenie czy plik z bazą danych istnieje, jeżeli nie to program go tworzy i wypełnia danymi
+
                 File dbFile = new File("project.db");
                 if (dbFile.exists()) {
                     System.out.println("Baza danych już istnieje");

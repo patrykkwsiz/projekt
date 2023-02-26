@@ -125,15 +125,17 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //połączenie z bazą, potrzebne jako parametr do wywołania metody setSliderValue
         Connection connection = null;
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:project.db");
         } catch (SQLException ignored) {
         }
 
+        //wywoływanie metody setSliderValue dla wszystkich kafelków programu
         setSliderValue(connection, "KITCHEN_MAIN", lightsSlider1, "LIGHTS" );
         light1 = (int) lightsSlider1.getValue();
-        label1.setText(light1 + "%");
+        label1.setText(light1 + "%"); //ustawienie wartości z suwaków do odpowiadającej etykiety - w tym przypadku do label1, poniżej dla wszystkich pozostałych
 
         setSliderValue(connection, "KITCHEN_CUPBOARDS", lightsSlider2, "LIGHTS" );
         light2 = (int) lightsSlider2.getValue();
@@ -167,6 +169,7 @@ public class HelloController implements Initializable {
         light9 = (int) lightsSlider9.getValue();
         label9.setText(light9 + "%");
 
+        //wywołanie metody do aktualizacji danych w bazie danych po naciśnięciu przycisku
         databaseValueUpdate(Blights1, label1, "LIGHTS", "KITCHEN_MAIN");
         databaseValueUpdate(Blights2, label2, "LIGHTS", "KITCHEN_CUPBOARDS");
         databaseValueUpdate(Blights3, label3, "LIGHTS", "SALOON_MAIN");
@@ -253,7 +256,7 @@ public class HelloController implements Initializable {
         temperature7 = (int) tempslider7.getValue();
         label711.setText(temperature7 + "°C");
 
-
+        //wywołanie osobnej metody, tylko do aktualizaji danych w tabeli z temperaturami("TEMPERATURE")
         tempDatabaseValueUpdate(Btemp1, label111, "TEMPERATURE", "KITCHEN");
         tempDatabaseValueUpdate(Btemp2, label211, "TEMPERATURE", "SALOON");
         tempDatabaseValueUpdate(Btemp3, label311, "TEMPERATURE", "BEDROOM1");
@@ -262,7 +265,8 @@ public class HelloController implements Initializable {
         tempDatabaseValueUpdate(Btemp6, label611, "TEMPERATURE", "CORRIDOR1");
         tempDatabaseValueUpdate(Btemp7, label711, "TEMPERATURE", "CORRIDOR2");
 
-
+        /*główna linia czasowa uruchamiająca odwrócone animacje przy starcie programu(aby przy przełączeniu zakładki elementy programu były w odpowiedniej
+        pozycji wyjściowej do uruchomienia właściwej animacji)*/
         Timeline mainTimeLine = new Timeline(
                 new KeyFrame(Duration.millis(10), Event -> reverseLightsTransition()),
                 new KeyFrame(Duration.millis(15), Event -> reverseRBlindTransition()),
@@ -273,13 +277,13 @@ public class HelloController implements Initializable {
 
 
         opis.setVisible(false);
-
+        //EventHandler z warunkiem odpowiadającym za widoczność grafiki opisowej
         MainTabPane.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
 
             if(homeTab.isSelected()) opis.setVisible(false);
             else opis.setVisible(true);
         });
-
+        //uruchomienie animacji przy pierwszym przełączeniu zakładki
         lightsTab.setOnSelectionChanged(event -> {
             if(countLightsTabClicked == 0){
                 lightsAnimSet();
@@ -301,7 +305,7 @@ public class HelloController implements Initializable {
             countTemperatureTabClicked++;
         });
 
-
+        //animacje do zegara i logo
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(logo);
         translate.setDuration(Duration.millis(850));
@@ -326,6 +330,7 @@ public class HelloController implements Initializable {
         );
         timeline.play();
 
+        //kod zapisujący aktualną godzinę systemową do etykiety "time"
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -334,6 +339,7 @@ public class HelloController implements Initializable {
         };
         timer.start();
 
+        //wywołanie metody nasłuchującej zmiany w pozycji suwaków
         sliderListener();
 
 
@@ -352,6 +358,7 @@ public class HelloController implements Initializable {
     void RblindTabSwitched(Event event) {
     }
 
+    //zestaw animacji, wywoływany w initialize w odpowiednim momencie
     public void lightsAnimSet() {
         paneOne.setNode(one);
         paneOne.setDuration(Duration.millis(850));
@@ -457,6 +464,7 @@ public class HelloController implements Initializable {
         );
         timeline.play();
     }
+       //zestaw animacji, ustawiający elementy programu(zakładka światła) w odpowiedniej pozycji przy uruchomieniu
        public void reverseLightsTransition() {
            paneOne.setNode(one);
            paneOne.setDuration(Duration.millis(1));
@@ -508,6 +516,7 @@ public class HelloController implements Initializable {
            lightsTimeline.play();
         }
 
+    //zestaw animacji, wywoływany w initialize w odpowiednim momencie
     public void RBlindAnimSet() {
         paneOne1.setNode(one1);
         paneOne1.setDuration(Duration.millis(850));
@@ -614,6 +623,8 @@ public class HelloController implements Initializable {
         timeline.play();
 
     }
+
+    //zestaw animacji, ustawiający elementy programu(zakładka rolety) w odpowiedniej pozycji przy uruchomieniu
     public void reverseRBlindTransition() {
         paneOne1.setNode(one1);
         paneOne1.setDuration(Duration.millis(1));
@@ -664,6 +675,8 @@ public class HelloController implements Initializable {
         );
         RBlindTimeline.play();
     }
+
+    //zestaw animacji, wywoływany w initialize w odpowiednim momencie
     public void TemperatureAnimSet() {
         paneOne2.setNode(one11);
         paneOne2.setDuration(Duration.millis(850));
@@ -748,6 +761,7 @@ public class HelloController implements Initializable {
         );
         timeline.play();
 
+        //zestaw animacji, ustawiający elementy programu(zakładka temperatura) w odpowiedniej pozycji przy uruchomieniu
     }
     public void reverseTemperatureTransition() {
         paneOne2.setNode(one11);
@@ -791,6 +805,7 @@ public class HelloController implements Initializable {
         TemperatureTimeline.play();
     }
 
+    //metoda nasłuchuje zmiany pozycji suwaków a następnie ustawia wartość w odpowiadających etykietach na podstawie tych zmian pozycji
     public void sliderListener(){
 
         lightsSlider1.valueProperty().addListener((observableValue, number, t1) -> {
@@ -917,6 +932,7 @@ public class HelloController implements Initializable {
             label711.setText(temperature7 + "°C");
         });
 
+    //metoda służy do ustawiania wartości suwaków z bazy danych przy uruchamianiu programu
     }public void setSliderValue(Connection connection, String columnName, Slider slider, String tableName) {
         try {
             String sql = "SELECT " + columnName + " FROM " + tableName + " WHERE ID = 1 ";
@@ -931,6 +947,7 @@ public class HelloController implements Initializable {
         }
     }
 
+    //metoda służy do aktualizowania danych w tabelach światła i rolety
      public void databaseValueUpdate(Button button, Label label, String tableName, String columnName) {
          button.setOnAction(event -> {
              try {
@@ -938,6 +955,7 @@ public class HelloController implements Initializable {
                  Statement stmt = conn.createStatement();
                  String temp = null;
 
+                 //użyłem tutaj metody substring od getText().length() - 1, aby pozbyć się "%" na końcu i operować tylko na liczbach
                  temp = label.getText().substring(0, label.getText().length() - 1);
                  System.out.println(temp);
 
@@ -949,6 +967,7 @@ public class HelloController implements Initializable {
          });
      }
 
+    //metoda służy do aktualizowania danych z zakładki temperatura
     public void tempDatabaseValueUpdate(Button button, Label label, String tableName, String columnName) {
         button.setOnAction(event -> {
             try {
@@ -956,6 +975,7 @@ public class HelloController implements Initializable {
                 Statement stmt = conn.createStatement();
                 String temp = null;
 
+                //użyłem tutaj metody substring od getText().length() - 2, ponieważ "°C" to 2 znaki
                 temp = label.getText().substring(0, label.getText().length() - 2);
                 System.out.println(temp);
 
