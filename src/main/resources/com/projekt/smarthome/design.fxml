@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.5" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projekt.smarthome.HelloController">
+   <children>
+      <ImageView fx:id="opis" fitHeight="507.0" fitWidth="235.0" layoutX="764.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Untitled.png" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="MainTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.5" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="homeTab">
+            <content>
+              <AnchorPane fx:id="homePane" minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="524.0">
+                     <children>
+                        <ImageView fx:id="logo" fitHeight="224.0" fitWidth="331.0" layoutX="350.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@projekt_logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="time" layoutX="405.0" layoutY="465.0" prefHeight="55.0" prefWidth="238.0" textAlignment="JUSTIFY">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient cycleMethod="REPEAT" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3070175349712372" green="0.7894737124443054" blue="0.3391812741756439" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.28963414634146334">
+                                       <color>
+                                          <Color red="0.19599999487400055" green="0.699999988079071" blue="0.5511999726295471" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.4390243902439024">
+                                       <color>
+                                          <Color red="0.19599999487400055" green="0.699999988079071" blue="0.6952000260353088" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.5579268292682926">
+                                       <color>
+                                          <Color red="0.19599999487400055" green="0.5224000215530396" blue="0.699999988079071" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.8170731707317073">
+                                       <color>
+                                          <Color red="0.628000020980835" green="0.19599999487400055" blue="0.699999988079071" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.9496644295302014">
+                                       <color>
+                                          <Color red="0.7099999785423279" green="0.19169999659061432" blue="0.42863714694976807" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.7099999785423279" green="0.19169999659061432" blue="0.42863714694976807" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                     </children></AnchorPane>
+            </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+          <Tab fx:id="lightsTab" onSelectionChanged="#LightsTabSwitched" text="światła">
+            <content>
+              <AnchorPane fx:id="lightsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="770.0">
+                     <children>
+                        <GridPane hgap="3.0" layoutX="5.0" layoutY="9.0" prefHeight="509.0" prefWidth="756.0" vgap="3.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Pane fx:id="one" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #4fdee3; -fx-border-color: black;">
+                                 <children>
+                                    <TextField editable="false" layoutX="54.0" layoutY="7.0" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: #4fdee3; -fx-text-inner-color: black;" text="Kuchnia [główne]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider1" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label1" layoutX="117.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights1" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="two" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #4fdee3; -fx-border-color: black;" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="7.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #4fdee3; -fx-text-inner-color: black;" text="Kuchnia [szafki]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider2" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label2" layoutX="116.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights2" layoutX="99.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="three" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #17e35b; -fx-border-color: black;" GridPane.columnIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="7.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #17e35b; -fx-text-inner-color: black;" text="Salon [główne]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider3" layoutX="56.0" layoutY="37.0" />
+                                    <Label fx:id="label3" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights3" layoutX="101.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="four" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #17e35b; -fx-border-color: black;" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="66.0" layoutY="7.0" prefHeight="31.0" prefWidth="118.0" style="-fx-background-color: #17e35b; -fx-text-inner-color: black;" text="Salon [lampa]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider4" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label4" layoutX="117.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights4" layoutX="96.0" layoutY="86.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="five" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #9926e0; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="70.0" layoutY="6.0" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: #9926e0; -fx-text-inner-color: black;" text="Sypialnia [1]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider5" layoutX="55.0" layoutY="37.0" />
+                                    <Label fx:id="label5" layoutX="117.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights5" layoutX="101.0" layoutY="87.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="six" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #d1bc1f; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="71.0" layoutY="6.0" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #d1bc1f; -fx-text-inner-color: black;" text="Sypialnia [2]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider6" layoutX="56.0" layoutY="37.0" />
+                                    <Label fx:id="label6" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights6" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="seven" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #1a74db; -fx-border-color: black;" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="8.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #1a74db; -fx-text-inner-color: black;" text="Pokój gościnny">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider7" layoutX="55.0" layoutY="39.0" />
+                                    <Label fx:id="label7" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights7" layoutX="102.0" layoutY="86.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="eight" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #cf4e53; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="7.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #cf4e53; -fx-text-inner-color: black;" text="Korytarz parter">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider8" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label8" layoutX="116.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights8" layoutX="99.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                              <Pane fx:id="nine" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #de6d1d; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="8.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #de6d1d; -fx-text-inner-color: black;" text="Korytarz piętro">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="lightsSlider9" layoutX="55.0" layoutY="39.0" />
+                                    <Label fx:id="label9" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@lights.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Blights9" layoutX="101.0" layoutY="82.0" mnemonicParsing="false" text="Zmień" />
+                                 </children></Pane>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="RblindTab" onSelectionChanged="#RblindTabSwitched" text="rolety">
+              <content>
+                <AnchorPane fx:id="rBlindPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="770.0">
+                     <children>
+                        <GridPane hgap="3.0" layoutX="5.0" layoutY="9.0" prefHeight="509.0" prefWidth="755.0" vgap="3.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Pane fx:id="one1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #4fdee3; -fx-border-color: black;">
+                                 <children>
+                                    <TextField editable="false" layoutX="63.0" layoutY="7.0" prefHeight="31.0" prefWidth="124.0" style="-fx-background-color: #4fdee3; -fx-text-inner-color: black;" text="Kuchnia [lewo]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider1" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label11" layoutX="117.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind1" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="two1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #4fdee3; -fx-border-color: black;" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="7.0" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #4fdee3; -fx-text-inner-color: black;" text="Kuchnia [prawo]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider2" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label21" layoutX="116.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind2" layoutX="99.0" layoutY="84.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="three1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #17e35b; -fx-border-color: black;" GridPane.columnIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="7.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #17e35b; -fx-text-inner-color: black;" text="Salon [główne]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider3" layoutX="56.0" layoutY="37.0" />
+                                    <Label fx:id="label31" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind3" layoutX="101.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="four1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #17e35b; -fx-border-color: black;" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="64.0" layoutY="7.0" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: #17e35b; -fx-text-inner-color: black;" text="Salon [boczne]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider4" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label41" layoutX="117.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind4" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="five1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #9926e0; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="70.0" layoutY="6.0" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: #9926e0; -fx-text-inner-color: black;" text="Sypialnia [1]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider5" layoutX="55.0" layoutY="37.0" />
+                                    <Label fx:id="label51" layoutX="117.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind5" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="six1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #d1bc1f; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="71.0" layoutY="6.0" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #d1bc1f; -fx-text-inner-color: black;" text="Sypialnia [2]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider6" layoutX="56.0" layoutY="37.0" />
+                                    <Label fx:id="label61" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind6" layoutX="101.0" layoutY="82.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="seven1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #1a74db; -fx-border-color: black;" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="8.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #1a74db; -fx-text-inner-color: black;" text="Pokój gościnny">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider7" layoutX="55.0" layoutY="39.0" />
+                                    <Label fx:id="label71" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind7" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="eight1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #cf4e53; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="7.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #cf4e53; -fx-text-inner-color: black;" text="Korytarz parter">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider8" layoutX="55.0" layoutY="38.0" />
+                                    <Label fx:id="label81" layoutX="116.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind8" layoutX="99.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="nine1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #de6d1d; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="8.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #de6d1d; -fx-text-inner-color: black;" text="Korytarz piętro">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="blindsSlider9" layoutX="55.0" layoutY="39.0" />
+                                    <Label fx:id="label91" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@rollerblinds.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="BRBlind9" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="temperatureTab" text="temperatura">
+              <content>
+                <AnchorPane fx:id="temperaturePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="770.0">
+                     <children>
+                        <GridPane hgap="3.0" layoutX="5.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="755.0" vgap="3.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Pane fx:id="one11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #17e35b; -fx-border-color: black;" GridPane.columnIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="95.0" layoutY="6.0" prefHeight="31.0" prefWidth="60.0" style="-fx-background-color: #17e35b; -fx-text-inner-color: black;" text="Salon">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider2" layoutX="56.0" layoutY="37.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label211" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp2" layoutX="101.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="two11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #4fdee3; -fx-border-color: black;">
+                                 <children>
+                                    <TextField editable="false" layoutX="87.0" layoutY="7.0" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: #4fdee3; -fx-text-inner-color: black;" text="Kuchnia">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider1" layoutX="55.0" layoutY="38.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label111" layoutX="117.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp1" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="three11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #9926e0; -fx-border-color: black;" GridPane.columnIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="70.0" layoutY="6.0" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: #9926e0; -fx-text-inner-color: black;" text="Sypialnia [1]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider3" layoutX="55.0" layoutY="37.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label311" layoutX="117.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp3" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="five11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #d1bc1f; -fx-border-color: black;" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="71.0" layoutY="6.0" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #d1bc1f; -fx-text-inner-color: black;" text="Sypialnia [2]">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider4" layoutX="56.0" layoutY="37.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label411" layoutX="118.0" layoutY="51.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp4" layoutX="101.0" layoutY="82.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="four11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #1a74db; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="8.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #1a74db; -fx-text-inner-color: black;" text="Pokój gościnny">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider5" layoutX="55.0" layoutY="39.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label511" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp5" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="six11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #cf4e53; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField editable="false" layoutX="61.0" layoutY="7.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #cf4e53; -fx-text-inner-color: black;" text="Korytarz parter">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider6" layoutX="55.0" layoutY="38.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label611" layoutX="116.0" layoutY="52.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="107.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp6" layoutX="99.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="seven11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="249.0" style="-fx-background-color: #de6d1d; -fx-border-color: black;" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField editable="false" layoutX="57.0" layoutY="8.0" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: #de6d1d; -fx-text-inner-color: black;" text="Korytarz piętro">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Slider fx:id="tempslider7" layoutX="55.0" layoutY="39.0" max="32.0" min="16.0" />
+                                    <Label fx:id="label711" layoutX="117.0" layoutY="53.0" text="0%" />
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@temperature.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="Btemp7" layoutX="100.0" layoutY="83.0" mnemonicParsing="false" text="Zmień" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </GridPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</Pane>
