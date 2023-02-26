@@ -122,6 +122,7 @@ public class HelloController implements Initializable {
     int light1,light2,light3,light4,light5,light6,light7,light8,light9;
     int rblind1,rblind2,rblind3,rblind4,rblind5,rblind6,rblind7,rblind8,rblind9;
     int temperature1,temperature2,temperature3,temperature4,temperature5,temperature6,temperature7;
+    animSet animset = new animSet();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -268,9 +269,9 @@ public class HelloController implements Initializable {
         /*główna linia czasowa uruchamiająca odwrócone animacje przy starcie programu(aby przy przełączeniu zakładki elementy programu były w odpowiedniej
         pozycji wyjściowej do uruchomienia właściwej animacji)*/
         Timeline mainTimeLine = new Timeline(
-                new KeyFrame(Duration.millis(10), Event -> reverseLightsTransition()),
-                new KeyFrame(Duration.millis(15), Event -> reverseRBlindTransition()),
-                new KeyFrame(Duration.millis(20), Event -> reverseTemperatureTransition())
+                new KeyFrame(Duration.millis(10), Event -> animset.reverseLightsTransition()),
+                new KeyFrame(Duration.millis(15), Event -> animset.reverseRBlindTransition()),
+                new KeyFrame(Duration.millis(20), Event -> animset.reverseTemperatureTransition())
         );
         mainTimeLine.setDelay(Duration.millis(15));
         mainTimeLine.play();
@@ -286,21 +287,21 @@ public class HelloController implements Initializable {
         //uruchomienie animacji przy pierwszym przełączeniu zakładki
         lightsTab.setOnSelectionChanged(event -> {
             if(countLightsTabClicked == 0){
-                lightsAnimSet();
+                animset.lightsAnimSet();
             }
             countLightsTabClicked++;
         });
 
         RblindTab.setOnSelectionChanged(event -> {
             if(countRBlindTabClicked == 0){
-                RBlindAnimSet();
+                animset.RBlindAnimSet();
             }
             countRBlindTabClicked++;
         });
 
         temperatureTab.setOnSelectionChanged(event -> {
             if(countTemperatureTabClicked == 0){
-                TemperatureAnimSet();
+                animset.TemperatureAnimSet();
             }
             countTemperatureTabClicked++;
         });
@@ -359,452 +360,455 @@ public class HelloController implements Initializable {
     }
 
     //zestaw animacji, wywoływany w initialize w odpowiednim momencie
-    public void lightsAnimSet() {
-        paneOne.setNode(one);
-        paneOne.setDuration(Duration.millis(850));
-        paneOne.setByY(-168);
+    public class animSet{
+        public void lightsAnimSet() {
+            paneOne.setNode(one);
+            paneOne.setDuration(Duration.millis(850));
+            paneOne.setByY(-168);
 
-        paneTwo.setNode(two);
-        paneTwo.setDuration(Duration.millis(850));
-        paneTwo.setByY(-168);
+            paneTwo.setNode(two);
+            paneTwo.setDuration(Duration.millis(850));
+            paneTwo.setByY(-168);
 
-        paneThree.setNode(three);
-        paneThree.setDuration(Duration.millis(850));
-        paneThree.setByY(-168);
+            paneThree.setNode(three);
+            paneThree.setDuration(Duration.millis(850));
+            paneThree.setByY(-168);
 
-        paneFour.setNode(four);
-        paneFour.setDuration(Duration.millis(850));
-        paneFour.setByY(-168);
+            paneFour.setNode(four);
+            paneFour.setDuration(Duration.millis(850));
+            paneFour.setByY(-168);
 
-        paneFive.setNode(five);
-        paneFive.setDuration(Duration.millis(850));
-        paneFive.setByY(-168);
+            paneFive.setNode(five);
+            paneFive.setDuration(Duration.millis(850));
+            paneFive.setByY(-168);
 
-        paneSix.setNode(six);
-        paneSix.setDuration(Duration.millis(850));
-        paneSix.setByY(-168);
+            paneSix.setNode(six);
+            paneSix.setDuration(Duration.millis(850));
+            paneSix.setByY(-168);
 
-        paneSeven.setNode(seven);
-        paneSeven.setDuration(Duration.millis(850));
-        paneSeven.setByY(-168);
+            paneSeven.setNode(seven);
+            paneSeven.setDuration(Duration.millis(850));
+            paneSeven.setByY(-168);
 
-        paneEight.setNode(eight);
-        paneEight.setDuration(Duration.millis(850));
-        paneEight.setByY(-168);
+            paneEight.setNode(eight);
+            paneEight.setDuration(Duration.millis(850));
+            paneEight.setByY(-168);
 
-        paneNine.setNode(nine);
-        paneNine.setDuration(Duration.millis(850));
-        paneNine.setByY(-168);
+            paneNine.setNode(nine);
+            paneNine.setDuration(Duration.millis(850));
+            paneNine.setByY(-168);
 
-        FadeOne.setNode(one);
-        FadeOne.setDuration(Duration.millis(1250));
-        FadeOne.setFromValue(0);
-        FadeOne.setToValue(1.0);
+            FadeOne.setNode(one);
+            FadeOne.setDuration(Duration.millis(1250));
+            FadeOne.setFromValue(0);
+            FadeOne.setToValue(1.0);
 
-        FadeTwo.setNode(two);
-        FadeTwo.setDuration(Duration.millis(1250));
-        FadeTwo.setFromValue(0);
-        FadeTwo.setToValue(1.0);
+            FadeTwo.setNode(two);
+            FadeTwo.setDuration(Duration.millis(1250));
+            FadeTwo.setFromValue(0);
+            FadeTwo.setToValue(1.0);
 
-        FadeThree.setNode(three);
-        FadeThree.setDuration(Duration.millis(1250));
-        FadeThree.setFromValue(0);
-        FadeThree.setToValue(1.0);
+            FadeThree.setNode(three);
+            FadeThree.setDuration(Duration.millis(1250));
+            FadeThree.setFromValue(0);
+            FadeThree.setToValue(1.0);
 
-        FadeFour.setNode(four);
-        FadeFour.setDuration(Duration.millis(1250));
-        FadeFour.setFromValue(0);
-        FadeFour.setToValue(1.0);
+            FadeFour.setNode(four);
+            FadeFour.setDuration(Duration.millis(1250));
+            FadeFour.setFromValue(0);
+            FadeFour.setToValue(1.0);
 
-        FadeFive.setNode(five);
-        FadeFive.setDuration(Duration.millis(1250));
-        FadeFive.setFromValue(0);
-        FadeFive.setToValue(1.0);
+            FadeFive.setNode(five);
+            FadeFive.setDuration(Duration.millis(1250));
+            FadeFive.setFromValue(0);
+            FadeFive.setToValue(1.0);
 
-        FadeSix.setNode(six);
-        FadeSix.setDuration(Duration.millis(1250));
-        FadeSix.setFromValue(0);
-        FadeSix.setToValue(1.0);
+            FadeSix.setNode(six);
+            FadeSix.setDuration(Duration.millis(1250));
+            FadeSix.setFromValue(0);
+            FadeSix.setToValue(1.0);
 
-        FadeSeven.setNode(seven);
-        FadeSeven.setDuration(Duration.millis(1250));
-        FadeSeven.setFromValue(0);
-        FadeSeven.setToValue(1.0);
+            FadeSeven.setNode(seven);
+            FadeSeven.setDuration(Duration.millis(1250));
+            FadeSeven.setFromValue(0);
+            FadeSeven.setToValue(1.0);
 
-        FadeEight.setNode(eight);
-        FadeEight.setDuration(Duration.millis(1250));
-        FadeEight.setFromValue(0);
-        FadeEight.setToValue(1.0);
+            FadeEight.setNode(eight);
+            FadeEight.setDuration(Duration.millis(1250));
+            FadeEight.setFromValue(0);
+            FadeEight.setToValue(1.0);
 
-        FadeNine.setNode(nine);
-        FadeNine.setDuration(Duration.millis(1250));
-        FadeNine.setFromValue(0);
-        FadeNine.setToValue(1.0);
+            FadeNine.setNode(nine);
+            FadeNine.setDuration(Duration.millis(1250));
+            FadeNine.setFromValue(0);
+            FadeNine.setToValue(1.0);
 
 
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(0), Event -> FadeOne.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeTwo.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeThree.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeFour.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeFive.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeSix.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeSeven.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeEight.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeNine.play()),
-                new KeyFrame(Duration.millis(100), Event -> paneOne.play()),
-                new KeyFrame(Duration.millis(120), Event -> paneTwo.play()),
-                new KeyFrame(Duration.millis(140), Event -> paneThree.play()),
-                new KeyFrame(Duration.millis(160), Event -> paneFour.play()),
-                new KeyFrame(Duration.millis(180), Event -> paneFive.play()),
-                new KeyFrame(Duration.millis(200), Event -> paneSix.play()),
-                new KeyFrame(Duration.millis(220), Event -> paneSeven.play()),
-                new KeyFrame(Duration.millis(240), Event -> paneEight.play()),
-                new KeyFrame(Duration.millis(260), Event -> paneNine.play())
-        );
-        timeline.play();
-    }
-       //zestaw animacji, ustawiający elementy programu(zakładka światła) w odpowiedniej pozycji przy uruchomieniu
-       public void reverseLightsTransition() {
-           paneOne.setNode(one);
-           paneOne.setDuration(Duration.millis(1));
-           paneOne.setByY(168);
-
-           paneTwo.setNode(two);
-           paneTwo.setDuration(Duration.millis(1));
-           paneTwo.setByY(168);
-
-           paneThree.setNode(three);
-           paneThree.setDuration(Duration.millis(1));
-           paneThree.setByY(168);
-
-           paneFour.setNode(four);
-           paneFour.setDuration(Duration.millis(1));
-           paneFour.setByY(168);
-
-           paneFive.setNode(five);
-           paneFive.setDuration(Duration.millis(1));
-           paneFive.setByY(168);
-
-           paneSix.setNode(six);
-           paneSix.setDuration(Duration.millis(1));
-           paneSix.setByY(168);
-
-           paneSeven.setNode(seven);
-           paneSeven.setDuration(Duration.millis(1));
-           paneSeven.setByY(168);
-
-           paneEight.setNode(eight);
-           paneEight.setDuration(Duration.millis(1));
-           paneEight.setByY(168);
-
-           paneNine.setNode(nine);
-           paneNine.setDuration(Duration.millis(1));
-           paneNine.setByY(168);
-
-           Timeline lightsTimeline = new Timeline(
-                   new KeyFrame(Duration.millis(1), Event -> paneOne.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneTwo.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneThree.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneFour.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneFive.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneSix.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneSeven.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneEight.play()),
-                   new KeyFrame(Duration.millis(1), Event -> paneNine.play())
-                   );
-           lightsTimeline.play();
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(0), Event -> FadeOne.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeTwo.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeThree.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeFour.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeFive.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeSix.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeSeven.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeEight.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeNine.play()),
+                    new KeyFrame(Duration.millis(100), Event -> paneOne.play()),
+                    new KeyFrame(Duration.millis(120), Event -> paneTwo.play()),
+                    new KeyFrame(Duration.millis(140), Event -> paneThree.play()),
+                    new KeyFrame(Duration.millis(160), Event -> paneFour.play()),
+                    new KeyFrame(Duration.millis(180), Event -> paneFive.play()),
+                    new KeyFrame(Duration.millis(200), Event -> paneSix.play()),
+                    new KeyFrame(Duration.millis(220), Event -> paneSeven.play()),
+                    new KeyFrame(Duration.millis(240), Event -> paneEight.play()),
+                    new KeyFrame(Duration.millis(260), Event -> paneNine.play())
+            );
+            timeline.play();
         }
 
-    //zestaw animacji, wywoływany w initialize w odpowiednim momencie
-    public void RBlindAnimSet() {
-        paneOne1.setNode(one1);
-        paneOne1.setDuration(Duration.millis(850));
-        paneOne1.setByY(-168);
+        //zestaw animacji, ustawiający elementy programu(zakładka światła) w odpowiedniej pozycji przy uruchomieniu
+        public void reverseLightsTransition() {
+            paneOne.setNode(one);
+            paneOne.setDuration(Duration.millis(1));
+            paneOne.setByY(168);
 
-        paneTwo1.setNode(two1);
-        paneTwo1.setDuration(Duration.millis(850));
-        paneTwo1.setByY(-168);
+            paneTwo.setNode(two);
+            paneTwo.setDuration(Duration.millis(1));
+            paneTwo.setByY(168);
 
-        paneThree1.setNode(three1);
-        paneThree1.setDuration(Duration.millis(850));
-        paneThree1.setByY(-168);
+            paneThree.setNode(three);
+            paneThree.setDuration(Duration.millis(1));
+            paneThree.setByY(168);
 
-        paneFour1.setNode(four1);
-        paneFour1.setDuration(Duration.millis(850));
-        paneFour1.setByY(-168);
+            paneFour.setNode(four);
+            paneFour.setDuration(Duration.millis(1));
+            paneFour.setByY(168);
 
-        paneFive1.setNode(five1);
-        paneFive1.setDuration(Duration.millis(850));
-        paneFive1.setByY(-168);
+            paneFive.setNode(five);
+            paneFive.setDuration(Duration.millis(1));
+            paneFive.setByY(168);
 
-        paneSix1.setNode(six1);
-        paneSix1.setDuration(Duration.millis(850));
-        paneSix1.setByY(-168);
+            paneSix.setNode(six);
+            paneSix.setDuration(Duration.millis(1));
+            paneSix.setByY(168);
 
-        paneSeven1.setNode(seven1);
-        paneSeven1.setDuration(Duration.millis(850));
-        paneSeven1.setByY(-168);
+            paneSeven.setNode(seven);
+            paneSeven.setDuration(Duration.millis(1));
+            paneSeven.setByY(168);
 
-        paneEight1.setNode(eight1);
-        paneEight1.setDuration(Duration.millis(850));
-        paneEight1.setByY(-168);
+            paneEight.setNode(eight);
+            paneEight.setDuration(Duration.millis(1));
+            paneEight.setByY(168);
 
-        paneNine1.setNode(nine1);
-        paneNine1.setDuration(Duration.millis(850));
-        paneNine1.setByY(-168);
+            paneNine.setNode(nine);
+            paneNine.setDuration(Duration.millis(1));
+            paneNine.setByY(168);
 
-        FadeOne1.setNode(one1);
-        FadeOne1.setDuration(Duration.millis(1250));
-        FadeOne1.setFromValue(0);
-        FadeOne1.setToValue(1.0);
+            Timeline lightsTimeline = new Timeline(
+                    new KeyFrame(Duration.millis(1), Event -> paneOne.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneTwo.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneThree.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneFour.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneFive.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneSix.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneSeven.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneEight.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneNine.play())
+            );
+            lightsTimeline.play();
+        }
 
-        FadeTwo1.setNode(two1);
-        FadeTwo1.setDuration(Duration.millis(1250));
-        FadeTwo1.setFromValue(0);
-        FadeTwo1.setToValue(1.0);
+        //zestaw animacji, wywoływany w initialize w odpowiednim momencie
+        public void RBlindAnimSet() {
+            paneOne1.setNode(one1);
+            paneOne1.setDuration(Duration.millis(850));
+            paneOne1.setByY(-168);
 
-        FadeThree1.setNode(three1);
-        FadeThree1.setDuration(Duration.millis(1250));
-        FadeThree1.setFromValue(0);
-        FadeThree1.setToValue(1.0);
+            paneTwo1.setNode(two1);
+            paneTwo1.setDuration(Duration.millis(850));
+            paneTwo1.setByY(-168);
 
-        FadeFour1.setNode(four1);
-        FadeFour1.setDuration(Duration.millis(1250));
-        FadeFour1.setFromValue(0);
-        FadeFour1.setToValue(1.0);
+            paneThree1.setNode(three1);
+            paneThree1.setDuration(Duration.millis(850));
+            paneThree1.setByY(-168);
 
-        FadeFive1.setNode(five1);
-        FadeFive1.setDuration(Duration.millis(1250));
-        FadeFive1.setFromValue(0);
-        FadeFive1.setToValue(1.0);
+            paneFour1.setNode(four1);
+            paneFour1.setDuration(Duration.millis(850));
+            paneFour1.setByY(-168);
 
-        FadeSix1.setNode(six1);
-        FadeSix1.setDuration(Duration.millis(1250));
-        FadeSix1.setFromValue(0);
-        FadeSix1.setToValue(1.0);
+            paneFive1.setNode(five1);
+            paneFive1.setDuration(Duration.millis(850));
+            paneFive1.setByY(-168);
 
-        FadeSeven1.setNode(seven1);
-        FadeSeven1.setDuration(Duration.millis(1250));
-        FadeSeven1.setFromValue(0);
-        FadeSeven1.setToValue(1.0);
+            paneSix1.setNode(six1);
+            paneSix1.setDuration(Duration.millis(850));
+            paneSix1.setByY(-168);
 
-        FadeEight1.setNode(eight1);
-        FadeEight1.setDuration(Duration.millis(1250));
-        FadeEight1.setFromValue(0);
-        FadeEight1.setToValue(1.0);
+            paneSeven1.setNode(seven1);
+            paneSeven1.setDuration(Duration.millis(850));
+            paneSeven1.setByY(-168);
 
-        FadeNine1.setNode(nine1);
-        FadeNine1.setDuration(Duration.millis(1250));
-        FadeNine1.setFromValue(0);
-        FadeNine1.setToValue(1.0);
+            paneEight1.setNode(eight1);
+            paneEight1.setDuration(Duration.millis(850));
+            paneEight1.setByY(-168);
+
+            paneNine1.setNode(nine1);
+            paneNine1.setDuration(Duration.millis(850));
+            paneNine1.setByY(-168);
+
+            FadeOne1.setNode(one1);
+            FadeOne1.setDuration(Duration.millis(1250));
+            FadeOne1.setFromValue(0);
+            FadeOne1.setToValue(1.0);
+
+            FadeTwo1.setNode(two1);
+            FadeTwo1.setDuration(Duration.millis(1250));
+            FadeTwo1.setFromValue(0);
+            FadeTwo1.setToValue(1.0);
+
+            FadeThree1.setNode(three1);
+            FadeThree1.setDuration(Duration.millis(1250));
+            FadeThree1.setFromValue(0);
+            FadeThree1.setToValue(1.0);
+
+            FadeFour1.setNode(four1);
+            FadeFour1.setDuration(Duration.millis(1250));
+            FadeFour1.setFromValue(0);
+            FadeFour1.setToValue(1.0);
+
+            FadeFive1.setNode(five1);
+            FadeFive1.setDuration(Duration.millis(1250));
+            FadeFive1.setFromValue(0);
+            FadeFive1.setToValue(1.0);
+
+            FadeSix1.setNode(six1);
+            FadeSix1.setDuration(Duration.millis(1250));
+            FadeSix1.setFromValue(0);
+            FadeSix1.setToValue(1.0);
+
+            FadeSeven1.setNode(seven1);
+            FadeSeven1.setDuration(Duration.millis(1250));
+            FadeSeven1.setFromValue(0);
+            FadeSeven1.setToValue(1.0);
+
+            FadeEight1.setNode(eight1);
+            FadeEight1.setDuration(Duration.millis(1250));
+            FadeEight1.setFromValue(0);
+            FadeEight1.setToValue(1.0);
+
+            FadeNine1.setNode(nine1);
+            FadeNine1.setDuration(Duration.millis(1250));
+            FadeNine1.setFromValue(0);
+            FadeNine1.setToValue(1.0);
 
 
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(0), Event -> FadeOne1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeTwo1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeThree1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeFour1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeFive1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeSix1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeSeven1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeEight1.play()),
-                new KeyFrame(Duration.millis(0), Event -> FadeNine1.play()),
-                new KeyFrame(Duration.millis(100), Event -> paneOne1.play()),
-                new KeyFrame(Duration.millis(120), Event -> paneTwo1.play()),
-                new KeyFrame(Duration.millis(140), Event -> paneThree1.play()),
-                new KeyFrame(Duration.millis(160), Event -> paneFour1.play()),
-                new KeyFrame(Duration.millis(180), Event -> paneFive1.play()),
-                new KeyFrame(Duration.millis(200), Event -> paneSix1.play()),
-                new KeyFrame(Duration.millis(220), Event -> paneSeven1.play()),
-                new KeyFrame(Duration.millis(240), Event -> paneEight1.play()),
-                new KeyFrame(Duration.millis(260), Event -> paneNine1.play())
-        );
-        timeline.play();
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(0), Event -> FadeOne1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeTwo1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeThree1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeFour1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeFive1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeSix1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeSeven1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeEight1.play()),
+                    new KeyFrame(Duration.millis(0), Event -> FadeNine1.play()),
+                    new KeyFrame(Duration.millis(100), Event -> paneOne1.play()),
+                    new KeyFrame(Duration.millis(120), Event -> paneTwo1.play()),
+                    new KeyFrame(Duration.millis(140), Event -> paneThree1.play()),
+                    new KeyFrame(Duration.millis(160), Event -> paneFour1.play()),
+                    new KeyFrame(Duration.millis(180), Event -> paneFive1.play()),
+                    new KeyFrame(Duration.millis(200), Event -> paneSix1.play()),
+                    new KeyFrame(Duration.millis(220), Event -> paneSeven1.play()),
+                    new KeyFrame(Duration.millis(240), Event -> paneEight1.play()),
+                    new KeyFrame(Duration.millis(260), Event -> paneNine1.play())
+            );
+            timeline.play();
 
+        }
+
+        //zestaw animacji, ustawiający elementy programu(zakładka rolety) w odpowiedniej pozycji przy uruchomieniu
+        public void reverseRBlindTransition() {
+            paneOne1.setNode(one1);
+            paneOne1.setDuration(Duration.millis(1));
+            paneOne1.setByY(168);
+
+            paneTwo1.setNode(two1);
+            paneTwo1.setDuration(Duration.millis(1));
+            paneTwo1.setByY(168);
+
+            paneThree1.setNode(three1);
+            paneThree1.setDuration(Duration.millis(1));
+            paneThree1.setByY(168);
+
+            paneFour1.setNode(four1);
+            paneFour1.setDuration(Duration.millis(1));
+            paneFour1.setByY(168);
+
+            paneFive1.setNode(five1);
+            paneFive1.setDuration(Duration.millis(1));
+            paneFive1.setByY(168);
+
+            paneSix1.setNode(six1);
+            paneSix1.setDuration(Duration.millis(1));
+            paneSix1.setByY(168);
+
+            paneSeven1.setNode(seven1);
+            paneSeven1.setDuration(Duration.millis(1));
+            paneSeven1.setByY(168);
+
+            paneEight1.setNode(eight1);
+            paneEight1.setDuration(Duration.millis(1));
+            paneEight1.setByY(168);
+
+            paneNine1.setNode(nine1);
+            paneNine1.setDuration(Duration.millis(1));
+            paneNine1.setByY(168);
+
+            Timeline RBlindTimeline = new Timeline(
+                    new KeyFrame(Duration.millis(1), Event -> paneOne1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneTwo1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneThree1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneFour1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneFive1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneSix1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneSeven1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneEight1.play()),
+                    new KeyFrame(Duration.millis(1), Event -> paneNine1.play())
+            );
+            RBlindTimeline.play();
+        }
+
+        //zestaw animacji, wywoływany w initialize w odpowiednim momencie
+        public void TemperatureAnimSet() {
+            paneOne2.setNode(one11);
+            paneOne2.setDuration(Duration.millis(850));
+            paneOne2.setByY(-168);
+
+            paneTwo2.setNode(two11);
+            paneTwo2.setDuration(Duration.millis(850));
+            paneTwo2.setByY(-168);
+
+            paneThree2.setNode(three11);
+            paneThree2.setDuration(Duration.millis(850));
+            paneThree2.setByY(-168);
+
+            paneFour2.setNode(four11);
+            paneFour2.setDuration(Duration.millis(850));
+            paneFour2.setByY(-168);
+
+            paneFive2.setNode(five11);
+            paneFive2.setDuration(Duration.millis(850));
+            paneFive2.setByY(-168);
+
+            paneSix2.setNode(six11);
+            paneSix2.setDuration(Duration.millis(850));
+            paneSix2.setByY(-168);
+
+            paneSeven2.setNode(seven11);
+            paneSeven2.setDuration(Duration.millis(850));
+            paneSeven2.setByY(-168);
+
+
+            FadeOne2.setNode(one11);
+            FadeOne2.setDuration(Duration.millis(1250));
+            FadeOne2.setFromValue(0);
+            FadeOne2.setToValue(1.0);
+
+            FadeTwo2.setNode(two11);
+            FadeTwo2.setDuration(Duration.millis(1250));
+            FadeTwo2.setFromValue(0);
+            FadeTwo2.setToValue(1.0);
+
+            FadeThree2.setNode(three11);
+            FadeThree2.setDuration(Duration.millis(1250));
+            FadeThree2.setFromValue(0);
+            FadeThree2.setToValue(1.0);
+
+            FadeFour2.setNode(four11);
+            FadeFour2.setDuration(Duration.millis(1250));
+            FadeFour2.setFromValue(0);
+            FadeFour2.setToValue(1.0);
+
+            FadeFive2.setNode(five11);
+            FadeFive2.setDuration(Duration.millis(1250));
+            FadeFive2.setFromValue(0);
+            FadeFive2.setToValue(1.0);
+
+            FadeSix2.setNode(six11);
+            FadeSix2.setDuration(Duration.millis(1250));
+            FadeSix2.setFromValue(0);
+            FadeSix2.setToValue(1.0);
+
+            FadeSeven2.setNode(seven11);
+            FadeSeven2.setDuration(Duration.millis(1250));
+            FadeSeven2.setFromValue(0);
+            FadeSeven2.setToValue(1.0);
+
+
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeOne2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeTwo2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeThree2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeFour2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeFive2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeSix2.play()),
+                    new KeyFrame(Duration.millis(1), actionEvent -> FadeSeven2.play()),
+                    new KeyFrame(Duration.millis(100), actionEvent -> paneOne2.play()),
+                    new KeyFrame(Duration.millis(120), actionEvent -> paneTwo2.play()),
+                    new KeyFrame(Duration.millis(140), actionEvent -> paneThree2.play()),
+                    new KeyFrame(Duration.millis(160), actionEvent -> paneFour2.play()),
+                    new KeyFrame(Duration.millis(180), actionEvent -> paneFive2.play()),
+                    new KeyFrame(Duration.millis(200), actionEvent -> paneSix2.play()),
+                    new KeyFrame(Duration.millis(220), actionEvent -> paneSeven2.play())
+            );
+            timeline.play();
+
+            //zestaw animacji, ustawiający elementy programu(zakładka temperatura) w odpowiedniej pozycji przy uruchomieniu
+        }
+
+        public void reverseTemperatureTransition() {
+            paneOne2.setNode(one11);
+            paneOne2.setDuration(Duration.millis(1));
+            paneOne2.setByY(168);
+
+            paneTwo2.setNode(two11);
+            paneTwo2.setDuration(Duration.millis(1));
+            paneTwo2.setByY(168);
+
+            paneThree2.setNode(three11);
+            paneThree2.setDuration(Duration.millis(1));
+            paneThree2.setByY(168);
+
+            paneFour2.setNode(four11);
+            paneFour2.setDuration(Duration.millis(1));
+            paneFour2.setByY(168);
+
+            paneFive2.setNode(five11);
+            paneFive2.setDuration(Duration.millis(1));
+            paneFive2.setByY(168);
+
+            paneSix2.setNode(six11);
+            paneSix2.setDuration(Duration.millis(1));
+            paneSix2.setByY(168);
+
+            paneSeven2.setNode(seven11);
+            paneSeven2.setDuration(Duration.millis(1));
+            paneSeven2.setByY(168);
+
+
+            Timeline TemperatureTimeline = new Timeline(
+                    new KeyFrame(Duration.millis(5), Event -> paneOne2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneTwo2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneThree2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneFour2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneFive2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneSix2.play()),
+                    new KeyFrame(Duration.millis(5), Event -> paneSeven2.play())
+            );
+            TemperatureTimeline.play();
+        }
     }
-
-    //zestaw animacji, ustawiający elementy programu(zakładka rolety) w odpowiedniej pozycji przy uruchomieniu
-    public void reverseRBlindTransition() {
-        paneOne1.setNode(one1);
-        paneOne1.setDuration(Duration.millis(1));
-        paneOne1.setByY(168);
-
-        paneTwo1.setNode(two1);
-        paneTwo1.setDuration(Duration.millis(1));
-        paneTwo1.setByY(168);
-
-        paneThree1.setNode(three1);
-        paneThree1.setDuration(Duration.millis(1));
-        paneThree1.setByY(168);
-
-        paneFour1.setNode(four1);
-        paneFour1.setDuration(Duration.millis(1));
-        paneFour1.setByY(168);
-
-        paneFive1.setNode(five1);
-        paneFive1.setDuration(Duration.millis(1));
-        paneFive1.setByY(168);
-
-        paneSix1.setNode(six1);
-        paneSix1.setDuration(Duration.millis(1));
-        paneSix1.setByY(168);
-
-        paneSeven1.setNode(seven1);
-        paneSeven1.setDuration(Duration.millis(1));
-        paneSeven1.setByY(168);
-
-        paneEight1.setNode(eight1);
-        paneEight1.setDuration(Duration.millis(1));
-        paneEight1.setByY(168);
-
-        paneNine1.setNode(nine1);
-        paneNine1.setDuration(Duration.millis(1));
-        paneNine1.setByY(168);
-
-        Timeline RBlindTimeline = new Timeline(
-                new KeyFrame(Duration.millis(1), Event -> paneOne1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneTwo1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneThree1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneFour1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneFive1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneSix1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneSeven1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneEight1.play()),
-                new KeyFrame(Duration.millis(1), Event -> paneNine1.play())
-        );
-        RBlindTimeline.play();
-    }
-
-    //zestaw animacji, wywoływany w initialize w odpowiednim momencie
-    public void TemperatureAnimSet() {
-        paneOne2.setNode(one11);
-        paneOne2.setDuration(Duration.millis(850));
-        paneOne2.setByY(-168);
-
-        paneTwo2.setNode(two11);
-        paneTwo2.setDuration(Duration.millis(850));
-        paneTwo2.setByY(-168);
-
-        paneThree2.setNode(three11);
-        paneThree2.setDuration(Duration.millis(850));
-        paneThree2.setByY(-168);
-
-        paneFour2.setNode(four11);
-        paneFour2.setDuration(Duration.millis(850));
-        paneFour2.setByY(-168);
-
-        paneFive2.setNode(five11);
-        paneFive2.setDuration(Duration.millis(850));
-        paneFive2.setByY(-168);
-
-        paneSix2.setNode(six11);
-        paneSix2.setDuration(Duration.millis(850));
-        paneSix2.setByY(-168);
-
-        paneSeven2.setNode(seven11);
-        paneSeven2.setDuration(Duration.millis(850));
-        paneSeven2.setByY(-168);
-
-
-        FadeOne2.setNode(one11);
-        FadeOne2.setDuration(Duration.millis(1250));
-        FadeOne2.setFromValue(0);
-        FadeOne2.setToValue(1.0);
-
-        FadeTwo2.setNode(two11);
-        FadeTwo2.setDuration(Duration.millis(1250));
-        FadeTwo2.setFromValue(0);
-        FadeTwo2.setToValue(1.0);
-
-        FadeThree2.setNode(three11);
-        FadeThree2.setDuration(Duration.millis(1250));
-        FadeThree2.setFromValue(0);
-        FadeThree2.setToValue(1.0);
-
-        FadeFour2.setNode(four11);
-        FadeFour2.setDuration(Duration.millis(1250));
-        FadeFour2.setFromValue(0);
-        FadeFour2.setToValue(1.0);
-
-        FadeFive2.setNode(five11);
-        FadeFive2.setDuration(Duration.millis(1250));
-        FadeFive2.setFromValue(0);
-        FadeFive2.setToValue(1.0);
-
-        FadeSix2.setNode(six11);
-        FadeSix2.setDuration(Duration.millis(1250));
-        FadeSix2.setFromValue(0);
-        FadeSix2.setToValue(1.0);
-
-        FadeSeven2.setNode(seven11);
-        FadeSeven2.setDuration(Duration.millis(1250));
-        FadeSeven2.setFromValue(0);
-        FadeSeven2.setToValue(1.0);
-
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeOne2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeTwo2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeThree2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeFour2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeFive2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeSix2.play()),
-                new KeyFrame(Duration.millis(1), actionEvent -> FadeSeven2.play()),
-                new KeyFrame(Duration.millis(100), actionEvent -> paneOne2.play()),
-                new KeyFrame(Duration.millis(120), actionEvent -> paneTwo2.play()),
-                new KeyFrame(Duration.millis(140), actionEvent -> paneThree2.play()),
-                new KeyFrame(Duration.millis(160), actionEvent -> paneFour2.play()),
-                new KeyFrame(Duration.millis(180), actionEvent -> paneFive2.play()),
-                new KeyFrame(Duration.millis(200), actionEvent -> paneSix2.play()),
-                new KeyFrame(Duration.millis(220), actionEvent -> paneSeven2.play())
-        );
-        timeline.play();
-
-        //zestaw animacji, ustawiający elementy programu(zakładka temperatura) w odpowiedniej pozycji przy uruchomieniu
-    }
-    public void reverseTemperatureTransition() {
-        paneOne2.setNode(one11);
-        paneOne2.setDuration(Duration.millis(1));
-        paneOne2.setByY(168);
-
-        paneTwo2.setNode(two11);
-        paneTwo2.setDuration(Duration.millis(1));
-        paneTwo2.setByY(168);
-
-        paneThree2.setNode(three11);
-        paneThree2.setDuration(Duration.millis(1));
-        paneThree2.setByY(168);
-
-        paneFour2.setNode(four11);
-        paneFour2.setDuration(Duration.millis(1));
-        paneFour2.setByY(168);
-
-        paneFive2.setNode(five11);
-        paneFive2.setDuration(Duration.millis(1));
-        paneFive2.setByY(168);
-
-        paneSix2.setNode(six11);
-        paneSix2.setDuration(Duration.millis(1));
-        paneSix2.setByY(168);
-
-        paneSeven2.setNode(seven11);
-        paneSeven2.setDuration(Duration.millis(1));
-        paneSeven2.setByY(168);
-
-
-        Timeline TemperatureTimeline = new Timeline(
-                new KeyFrame(Duration.millis(5), Event -> paneOne2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneTwo2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneThree2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneFour2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneFive2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneSix2.play()),
-                new KeyFrame(Duration.millis(5), Event -> paneSeven2.play())
-        );
-        TemperatureTimeline.play();
-    }
-
     //metoda nasłuchuje zmiany pozycji suwaków a następnie ustawia wartość w odpowiadających etykietach na podstawie tych zmian pozycji
     public void sliderListener(){
 
